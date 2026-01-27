@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<script>
+if (!localStorage.getItem("loggedIn")) {
+    window.location.href = "login.html";
+}
+</script>
+
+<nav class="sidebar">
+    <a href="index.html" class="logo">
+        <img src="Assets/logo.png">
+    </a>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart</a>
+    <a href="profile.html">Profile</a>
+</nav>
+
+<main class="catalog">
+    <section class="catalog_header">
+        <h1>Profile</h1>
+        <p>Your account overview</p>
+    </section>
+
+    <div class="auth_box">
+        <p><strong>Username:</strong> <span id="u"></span></p>
+        <p><strong>Email:</strong> <span id="e"></span></p>
+        <button onclick="logout()">Log Out</button>
+    </div>
+</main>
+
+<script>
+document.getElementById("u").textContent =
+    localStorage.getItem("username") || "PlaceholderUser";
+document.getElementById("e").textContent =
+    localStorage.getItem("email") || "placeholder@email.com";
+
+function logout() {
+    localStorage.clear();
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
