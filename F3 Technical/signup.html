@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="sidebar">
+    <a href="index.html" class="logo">
+        <img src="Assets/logo.png">
+    </a>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart</a>
+</nav>
+
+<main class="catalog">
+    <section class="catalog_header">
+        <h1>Sign Up</h1>
+        <p>Create a new account</p>
+    </section>
+
+    <form class="auth_box" onsubmit="signup(event)">
+        <input type="text" id="signupUser" placeholder="Username" required minlength="3">
+        <input type="email" id="signupEmail" placeholder="Email" required>
+        <input type="password" id="signupPass" placeholder="Password (min 6 chars)" required minlength="6">
+        <button type="submit">Create Account</button>
+
+        <p>
+            Already have an account?
+            <a href="login.html" class="btn">Back to login</a>
+        </p>
+    </form>
+</main>
+
+<script>
+function signup(e) {
+    e.preventDefault();
+
+    const user = document.getElementById("signupUser").value.trim();
+    const email = document.getElementById("signupEmail").value.trim();
+    const pass = document.getElementById("signupPass").value.trim();
+
+    if (user.length < 3 || pass.length < 6 || !email.includes("@")) {
+        alert("Invalid signup format");
+        return;
+    }
+
+    localStorage.setItem("loggedIn", "true");
+    localStorage.setItem("username", user);
+    localStorage.setItem("email", email);
+    window.location.href = "profile.html";
+}
+</script>
+
+</body>
+</html>
