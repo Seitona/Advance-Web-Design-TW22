@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<script>
+  if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
+
+<div id="app">
+  <nav class="sidebar">
+    <a href="index.html" class="logo">
+      <img src="Assets/logo.png" alt="Clout Chaserz logo" />
+    </a>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart</a>
+
+    <a href="login.html" v-if="!isLoggedIn">Log In</a>
+    <a href="profile.html" v-else>Profile</a>
+  </nav>
+
+  <main class="catalog">
+    <section class="catalog_header">
+      <h1>Profile</h1>
+      <p>Your account overview</p>
+    </section>
+
+    <div class="auth_box">
+      <p><strong>Username:</strong> <span>{{ username }}</span></p>
+      <p><strong>Email:</strong> <span>{{ email }}</span></p>
+      <button @click="logout">Log Out</button>
+    </div>
+  </main>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script src="profile-app.js"></script>
+</body>
+</html>

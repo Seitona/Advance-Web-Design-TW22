@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div id="app">
+  <nav class="sidebar">
+    <a href="index.html" class="logo">
+      <img src="Assets/logo.png" alt="Clout Chaserz logo" />
+    </a>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart</a>
+
+    <a href="login.html" v-if="!isLoggedIn">Log In</a>
+    <a href="profile.html" v-else>Profile</a>
+  </nav>
+
+  <main class="catalog">
+    <section class="catalog_header">
+      <h1>Sign Up</h1>
+      <p>Create a new account</p>
+    </section>
+
+    <form class="auth_box" @submit.prevent="signup">
+      <input type="text" placeholder="Username" required minlength="3" v-model.trim="user" />
+      <input type="email" placeholder="Email" required v-model.trim="email" />
+      <input type="password" placeholder="Password (min 6 chars)" required minlength="6" v-model.trim="pass" />
+      <button type="submit">Create Account</button>
+
+      <p v-if="error" style="color:#d33; margin:0; text-align:center; font-size:12px;">
+        {{ error }}
+      </p>
+
+      <p>
+        Already have an account?
+        <a href="login.html" class="btn">Back to login</a>
+      </p>
+    </form>
+  </m

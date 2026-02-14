@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="app">
+  <nav class="sidebar">
+    <a href="index.html" class="logo">
+      <img src="Assets/logo.png" alt="Clout Chaserz logo" />
+    </a>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact Us</a>
+
+    <a href="login.html" v-if="!isLoggedIn">Log In</a>
+    <a href="profile.html" v-else>Profile</a>
+  </nav>
+
+  <main>
+    <div class="banner">
+      <div class="overlay">
+        <div class="banner_title">
+          <h1>HOME</h1>
+          <h2>ARE YOU READY TO CHASE THE CLOUT?</h2>
+
+          <div class="featured">
+            <h3>Featured products</h3>
+            <div class="featured_products">
+              <div class="featured_product">
+                <h4>Matcha Kit</h4>
+                <img src="Assets/matcha.jpg" alt="matcha kit" />
+              </div>
+              <div class="featured_product">
+                <h4 style="margin: 10%;">Minimalist Earphones</h4>
+                <img src="Assets/earphones.jpg" alt="minimalist earphones" />
+              </div>
+              <div class="featured_product">
+                <h4>Reading Kit</h4>
+                <img src="Assets/books.jpg" alt="reading kit" />
+              </div>
+            </div>
+          </div>
+
+          <a href="products.html" class="more_products"><h3>More Products</h3></a>
+        </div>
+      </div>
+      <img src="Assets/banner.png" alt="" />
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer_left"><p>© 2026 Clout Chaserz</p></div>
+    <div class="footer_center"><img src="Assets/logo.png" alt="Clout Chaserz logo" /></div>
+    <div class="footer_right"><p>Designed for the chase.</p></div>
+  </footer>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script src="site-app.js"></script>
+</body>
+</html>
